@@ -1,6 +1,6 @@
+A Life Hacker.
 
-
-<img align="left" src="./asset/codingtime.svg" />
+<img align="left" src="https://github.com/ssine/ssine/codingtime.svg" />
 
 &nbsp;
 
