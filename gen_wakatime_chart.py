@@ -17,8 +17,10 @@ def gen_chart():
     else:
         http_client = httpx.Client()
 
+    print('getting wakatime data')
     percents = http_client.get('https://wakatime.com/share/@4d6204f0-5919-472a-8a52-3bf2a4c287e7/fc38b846-9952-4092-b215-1e9679710d20.json')
     times = http_client.get('https://wakatime.com/share/@4d6204f0-5919-472a-8a52-3bf2a4c287e7/958247f1-bb04-4e59-9db9-aa4af08eb4d5.json')
+    print('wakatime data got')
 
     lang_labels = []
     lang_percents = []
@@ -55,7 +57,9 @@ def gen_chart():
     plt.annotate(f'{n_hour} h {n_minutes} min', (0, 0), ha='center', va='center')
     plt.title('Coding Time This Week')
     plt.tight_layout()
+    print('figure drawn')
     plt.savefig(root / 'asset/codingtime.svg')
+    print('figure saved')
 
 if __name__ == "__main__":
     gen_chart()
