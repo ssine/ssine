@@ -50,12 +50,12 @@ def gen_chart():
     n_hour = int(total_time_s / 3600)
     n_minutes = int((total_time_s % 3600) / 60)
     dpi = 96
-    px_height = 300
-    px_width = 300
+    px_height = 265
+    px_width = 265
     plt.figure(figsize=(px_height/dpi, px_width/dpi), dpi=dpi)
     plt.pie(lang_percents, labels=lang_labels, colors=lang_colors, wedgeprops={'width': 0.382}, startangle=180, counterclock=False)
     plt.annotate(f'{n_hour} h {n_minutes} min', (0, 0), ha='center', va='center')
-    plt.title('Coding Time This Week')
+    plt.title('Coding Time Last 7 Days')
     plt.tight_layout()
     print('figure drawn')
     plt.savefig(root / 'asset/codingtime.svg')
