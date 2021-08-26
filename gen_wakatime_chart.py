@@ -24,12 +24,16 @@ def gen_chart():
 
     lang_labels = []
     lang_percents = []
+    origin_other_percent = 0
     for d in percents.json()['data']:
+        if d['name'] == 'Other':
+            origin_other_percent = d['percent']
+            continue
         lang_labels.append(d['name'])
         lang_percents.append(d['percent'])
 
-    other_percent = sum(filter(lambda p: p < 5, lang_percents))
-    lang_labels, lang_percents = map(list, zip(*filter(lambda t: t[1] >= 5, zip(lang_labels, lang_percents))))
+    other_percent = sum(filter(lambda p: p < 2, lang_percents)) + origin_other_percent
+    lang_labels, lang_percents = map(list, zip(*filter(lambda t: t[1] >= 2, zip(lang_labels, lang_percents))))
     lang_labels.append('Other')
     lang_percents.append(other_percent)
 
